@@ -15,27 +15,26 @@ const oAuth2Client = new google.auth.OAuth2(
  redirect_uris[0]
 );
 
-// Lambda function
+// Lambda function for getting auth url
 module.exports.getAuthURL = async () => {
- /**
-  *
-  * Scopes array is passed to the `scope` option.
-  *
-  */
- const authUrl = oAuth2Client.generateAuthUrl({
-   access_type: "offline",
-   scope: SCOPES,
- });
+  /**
+   *
+   * Scopes array is passed to the `scope` option. 
+   *
+   */
+  const authUrl = oAuth2Client.generateAuthUrl({
+    access_type: "offline",
+    scope: SCOPES,
+  });
 
-
- return {
-   statusCode: 200,
-   headers: {
-     'Access-Control-Allow-Origin': '*',
-     'Access-Control-Allow-Credentials': true,
-   },
-   body: JSON.stringify({
-     authUrl,
-   }),
- };
+  return {
+    statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
+    body: JSON.stringify({
+      authUrl,
+    }),
+  };
 };

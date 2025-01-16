@@ -2,15 +2,15 @@
 service: auth-server
 
 provider:
-  name: aws
-  runtime: nodejs18.x
-  region: us-east-2
-  profile: default
-  timeout: 30 #seconds before timeout default 6
-  environment:
-    CLIENT_ID: ${file(config.json):CLIENT_ID}
-    CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
-    CALENDAR_ID: ${file(config.json):CALENDAR_ID}
+name: aws
+runtime: nodejs18.x
+region: us-east-2
+profile: default
+timeout: 30 #seconds before timeout default 6
+environment:
+  CLIENT_ID: ${file(config.json):CLIENT_ID}
+  CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
+  CALENDAR_ID: ${file(config.json):CALENDAR_ID}
 
 #all the lambda functions you are defining
 functions:
@@ -18,5 +18,5 @@ functions:
     handler: handler.getAuthURL
     events:
       - http:
-           path: api/get-auth-url
+          path: api/get-auth-url
           method: get

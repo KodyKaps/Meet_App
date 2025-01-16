@@ -9,5 +9,8 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  }
 }
