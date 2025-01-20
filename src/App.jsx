@@ -1,31 +1,13 @@
+import React from 'react';
 
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  
-
-  return (
-    <>
-      <div>
-        
-      </div>
-      <h1>Meet App</h1>
-      <div className="card">
-        <input type='text'/>
-        {/* <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button> */}
-        {/* <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p> */}
-      </div>
-      {/* <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
-    </>
-  )
+const App = () => {
+ return (
+   <div className="App">
+     <div id="event-list"></div>
+   </div>
+ );
 }
 
-export default App
+
+export default App;
