@@ -17,6 +17,7 @@ describe('Event component', () => {
         // The event's show details button (Figure 22).
         expect(screen.getByTestId('show-details')).toBeDefined()
         
+        
         //show details text should be on button
         expect(true).toBe(false);
         //about event should not display
@@ -52,7 +53,19 @@ describe('Event component', () => {
     test('Scenario 3: User can collapse an event to hide details',() =>{
         const event = mockData[0]
         render(<Event event={event}/>)
-        //clikc to open
+        //click to open
+
+        // Click the "Show Details" button
+        const showDetailsButton = screen.getByText('Show Details');
+        fireEvent.click(showDetailsButton);
+
+        // Check if details are displayed after clicking
+        const updatedDetailsElement = screen.queryByText(event.description);
+        expect(updatedDetailsElement).toBeInTheDocument();
+
+        // Optional: Check if "Hide Details" button appears
+        const hideDetailsButton = screen.getByText('Hide Details');
+        expect(hideDetailsButton).toBeInTheDocument();
 
         //assert open
         expect(true).toBe(false);
