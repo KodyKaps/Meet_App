@@ -1,7 +1,8 @@
 import mockData from "../mock-data";
-import Event from "../Event";
+import Event from "../components/Event";
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+const normalizeText = (text) => text.replace(/\s+/g, ' ').trim();
 
 const user = userEvent.setup();
 
@@ -46,7 +47,7 @@ describe("Event component", () => {
 
     // Verify event details are displayed
     expect(screen.getByTestId("about-event")).toBeInTheDocument();
-    expect(screen.getByTestId("description")).toHaveTextContent(event.description);
+    expect(screen.getByTestId("description")).toHaveTextContent(normalizeText(event.description));
   });
 
   test("Scenario 3: User can collapse an event to hide details", async () => {
@@ -58,8 +59,9 @@ describe("Event component", () => {
     await user.click(showDetailsButton);
 
     // Verify details are displayed
-    expect(screen.getByTestId("about-event")).toBeInTheDocument();
-    expect(screen.getByTestId("description")).toHaveTextContent(event.description);
+    expect(screen.queryByTestId("about-event")).toBeInTheDocument();
+    
+    expect(screen.queryByTestId("description")).toHaveTextContent(normalizeText(event.description));
 
     // Simulate clicking the "Hide Details" button to collapse details
     await user.click(showDetailsButton);

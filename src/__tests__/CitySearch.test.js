@@ -3,7 +3,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getEvents,extractLocations } from '../api';
-import CitySearch from '../CitySearch';
+import CitySearch from '../components/CitySearch';
 
 describe('<CitySearch /> component', () => {
     let CitySearchComponent;
