@@ -6,7 +6,7 @@ const NumberOfEvents = () => {
         <div>
             <label>
                 Number of Events:
-                <input type="number" value={numberOfEvents} onChange={e => setNumberOfEvents(e.target.value)}/>
+                <input value={numberOfEvents} onChange={(e) => setNumberOfEvents(Number(e.target.value))}/>
             </label>
         </div>
     );
