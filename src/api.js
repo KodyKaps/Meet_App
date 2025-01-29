@@ -24,5 +24,6 @@ export const extractLocations = (events) => {
  * This function will fetch the list of all events
  */
 export const getEvents = async () => {
+  //mock data only has 15 what we copied, will never have 32
   return mockData;
 };
