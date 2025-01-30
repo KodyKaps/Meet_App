@@ -37,3 +37,4 @@ config.json
 client_secret_*
 AWSCLI*
 
+coverage
