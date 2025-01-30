@@ -1,6 +1,6 @@
 // src/components/Event.jsx
 import React, { useState } from 'react';
-
+import './Event.css'
 
 const Event = ({event}) => {
   const [hideDetails, setHideDetails] = useState(true)
@@ -8,7 +8,7 @@ const Event = ({event}) => {
     setHideDetails(!hideDetails)
   }
   return (
-    <li>
+    <li className='event'>
       <h2 data-testid="title">{event.summary}</h2>
       <p data-testid="start-time">{event.created}</p>
       <p data-testid="location">{event.location}</p>

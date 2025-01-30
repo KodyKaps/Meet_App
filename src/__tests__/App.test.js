@@ -54,4 +54,23 @@ describe('<App/> integration', () => {
     //expect(actual).toBe(expected)
     expect(allRenderedEventItems.length).toBe(berlinEvents.length);
   });
+
+  test('user changes value of number of events', async () => {
+    //Arrange
+    const user = userEvent.setup();
+    const AppComponent = render(<App />);
+    const AppDOM = AppComponent.container.firstChild;
+
+    let NumberOfEventsInput = AppDOM.querySelector('#number-of-events');
+    //should start at 32
+    expect(NumberOfEventsInput.value).toBe("32")
+    //type back back 5
+    
+    await user.type(NumberOfEventsInput, "{backspace}{backspace}5")
+    expect(NumberOfEventsInput.value).toBe("5")
+    //should be 5
+    
+    //give me all event items
+   
+  })
 });

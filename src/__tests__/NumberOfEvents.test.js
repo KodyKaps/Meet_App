@@ -2,14 +2,14 @@ import { render, screen } from "@testing-library/react";
 import NumberOfEvents from '../components/NumberOfEvents'
 describe('NumberOfEvents', () => {
   test('the default value of the input field is 32', () => {
-    render(<NumberOfEvents/>)
+    render(<NumberOfEvents numberOfEvents={32}/>)
     const input = screen.queryByRole('textbox')
     screen.debug()
     expect(input.value).toBe('32')
   });
 
   test('the NumberOfEvents component contains an element with the role of the textbox', () => {
-    render(<NumberOfEvents/>)
+    render(<NumberOfEvents numberOfEvents={32}/>)
     const input = screen.queryByRole('textbox')
     screen.debug()
     expect(input.value).toBe('32')
