@@ -20,6 +20,7 @@ const Event = ({event}) => {
       }
       <button 
         data-testid="show-details" 
+        className='details-btn'
         onClick={handleClick}>
           {hideDetails ? 'Show Details' : 'Hide Details'}
       </button>
