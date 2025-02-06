@@ -5,8 +5,10 @@ const feature = loadFeature('./src/features/specifyNumberOfEvents.feature');
 
 defineFeature(feature, test => {
     test('When user hasn’t specified a number, 32 events are shown by default.', ({ given, when, then }) => {
+        let AppComponent;
         given('the app is open', () => {
-
+            AppComponent = render(<App />);
+            
         });
 
         when('user hasn’t changed number of events', () => {
@@ -19,9 +21,11 @@ defineFeature(feature, test => {
     });
 
     test('User can change the number of events displayed.', ({ given, when, then }) => {
+        let AppComponent;
         given('app is open', () => {
+            AppComponent = render(<App />);
 
-        });
+         });
 
         when('user changes number of events to five', () => {
 
