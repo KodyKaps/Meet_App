@@ -13,7 +13,7 @@ const Event = ({event}) => {
       <p data-testid="start-time">{event.created}</p>
       <p data-testid="location">{event.location}</p>
       {hideDetails == false && 
-        <div>
+        <div data-testid='details-section'>
           <p data-testid="about-event">{event.location}</p>
           <p data-testid="description">{event.description}</p>
         </div>

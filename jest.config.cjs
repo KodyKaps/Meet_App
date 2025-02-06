@@ -8,4 +8,7 @@ module.exports = {
     },
     moduleFileExtensions: ['js', 'jsx'],
     setupFilesAfterEnv: ['<rootDir>/setupTests.js'], // Path to the setup file
+    testPathIgnorePatterns: [
+      "e2etests/"
+    ]
 };
