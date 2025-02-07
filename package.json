@@ -4,13 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "node index.js",
+    "deploy": "node deploy.js",
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "jest",
-    "deploy": "gh-pages -d build"
+    "test": "jest"
   },
   "dependencies": {
     "atatus-spa": "^4.6.4",
