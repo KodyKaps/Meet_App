@@ -4,8 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "deploy": "node deploy.js",
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
