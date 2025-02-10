@@ -5,7 +5,7 @@ import NumberOfEvents from './components/NumberOfEvents';
 import { useEffect, useState } from 'react';
 import { extractLocations, getEvents } from './api';
 import './App.css';
-
+import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 const SEE_ALL_CITIES= "See all cities" 
 
 const App = () => {
@@ -14,8 +14,18 @@ const App = () => {
   const [currentNOE, setCurrentNOE] = useState(32);
   const [events, setEvents] = useState([]);
   const [currentCity, setCurrentCity] = useState(SEE_ALL_CITIES)
+  const [infoAlert, setInfoAlert] = useState("");
+  const [errorAlert, setErrorAlert] = useState("");
+  const [warningAlert, setWarningAlert] = useState("");
 
   useEffect(() => {
+    if (navigator.onLine) {
+      // set the warning alert message to an empty string ""
+      setWarningAlert("")
+    } else {
+      // set the warning alert message to a non-empty string
+      setWarningAlert("Warning the browser navigator is not on line")
+    }
     fetchData();
   }, [currentCity, currentNOE]);
 
@@ -35,8 +45,21 @@ const App = () => {
 
   return (
     <div className="App">
-      <CitySearch allLocations={allLocations} setCurrentCity={(city) => setCurrentCity(city)} />
-      <NumberOfEvents numberOfEvents={currentNOE} setNumberOfEvents={(n) => setCurrentNOE(n)}/>
+      <div className="alerts-container">
+        {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
+        {errorAlert.length > 0 ? <ErrorAlert text={errorAlert} /> : null}
+        {warningAlert.length > 0 ? <WarningAlert text={warningAlert} /> : null}
+      </div>
+      <CitySearch 
+        allLocations={allLocations} 
+        setCurrentCity={(city) => setCurrentCity(city)} 
+        setInfoAlert={setInfoAlert}
+        />
+      <NumberOfEvents 
+        numberOfEvents={currentNOE} 
+        setNumberOfEvents={(n) => setCurrentNOE(n)}
+        setErrorAlert={setErrorAlert}  
+      />
       <EventList events={events}/>
     </div>
   );
