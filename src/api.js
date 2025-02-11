@@ -77,6 +77,7 @@ const getToken = async (code) => {
   return access_token;
 };
 
+const AWS_GET_AUTH_URL="https://osqibcj45ydwvy4hbmoiu4b2h40jhgxk.lambda-url.us-east-2.on.aws/"
 export const getAccessToken = async () => {
   const accessToken = localStorage.getItem('access_token')
 
@@ -88,7 +89,7 @@ export const getAccessToken = async () => {
     const code = await searchParams.get("code");
     if (!code) {
       const response = await fetch(
-        "YOUR_SERVERLESS_GET_AUTH_URL_ENDPOINT"
+        AWS_GET_AUTH_URL
       );
       const result = await response.json();
       const { authUrl } = result;
