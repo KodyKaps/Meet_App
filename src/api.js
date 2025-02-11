@@ -89,7 +89,7 @@ export const getAccessToken = async () => {
     const code = await searchParams.get("code");
     if (!code) {
       const response = await fetch(
-        AWS_GET_AUTH_URL
+        "YOUR_SERVERLESS_GET_AUTH_URL_ENDPOINT"
       );
       const result = await response.json();
       const { authUrl } = result;
