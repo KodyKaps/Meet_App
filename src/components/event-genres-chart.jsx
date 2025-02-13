@@ -1,16 +1,9 @@
-import React, { PureComponent } from 'react';
+import React, { useState,useEffect } from 'react';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
-
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-];
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
-const RADIAN = Math.PI / 180;
+
 const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'Angular'];
 const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, percent, index }) => {
     const RADIAN = Math.PI / 180;
@@ -39,9 +32,9 @@ const EventGenresChart = ({events}) => {
   
       const getData = () => {
           const data = genres.map((g) => {
-            const count = events.filter((event) => event.summary.includes(g) ).length
+            const value = events.filter((event) => event.summary.includes(g) ).length
             // const city = location.split((/, | - /))[0]
-            return { g, count };
+            return { g, value };
           })
           return data;
       };
