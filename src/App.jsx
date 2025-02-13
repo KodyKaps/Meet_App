@@ -7,6 +7,8 @@ import { extractLocations, getEvents } from './api';
 import './App.css';
 import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 const SEE_ALL_CITIES= "See all cities" 
+import EventGenresChart from './components/event-genres-chart';
+import CityEventsChart from './components/city-events-chart';
 
 const App = () => {
   const [allLocations, setAllLocations] = useState([]);
@@ -60,6 +62,10 @@ const App = () => {
         setNumberOfEvents={(n) => setCurrentNOE(n)}
         setErrorAlert={setErrorAlert}  
       />
+      <div className='charts-container'>
+        <EventGenresChart events={events}/>
+        <CityEventsChart allLocations={allLocations} events={events}/>
+      </div>
       <EventList events={events}/>
     </div>
   );
