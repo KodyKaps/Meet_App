@@ -32,9 +32,9 @@ const checkToken = async (accessToken) => {
  */
 export const getEvents = async () => {
   //mock data only has 32 what we copied, will never have 32
-  if (!window.location.href.startsWith('http://localhost')) {
+  if (window.location.href.startsWith('http://localhost')) {}
     return mockData;
-  }
+  
 
   const token = await getAccessToken();
 
